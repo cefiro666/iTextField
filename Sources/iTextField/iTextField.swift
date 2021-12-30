@@ -162,10 +162,12 @@ public struct iTextField: UIViewRepresentable {
             }
         }
 
-        if isEditing.wrappedValue {
-            textField.becomeFirstResponder()
-        } else {
-            textField.resignFirstResponder()
+        DispatchQueue.main.async {
+            if isEditing.wrappedValue {
+                textField.becomeFirstResponder()
+            } else {
+                textField.resignFirstResponder()
+            }
         }
     }
     
